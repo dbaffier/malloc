@@ -1,0 +1,441 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ADDR	inc/malloc.h	/^# define ADDR(/;"	d
+ALIGN	inc/malloc.h	/^# define ALIGN(/;"	d
+ALIGNMENT	inc/malloc.h	/^# define ALIGNMENT /;"	d
+ALIGN_PAGE	inc/malloc.h	/^# define ALIGN_PAGE(/;"	d
+APRIL	libft/inc/ft_time.h	/^# define APRIL /;"	d
+AUGUST	libft/inc/ft_time.h	/^# define AUGUST /;"	d
+BLACK	libft/inc/ft_printf.h	/^# define BLACK	/;"	d
+BLUE	Makefile	/^BLUE = "\\033[1;38;2;50;150;250m"$/;"	m
+BLUE	libft/inc/ft_printf.h	/^# define BLUE	/;"	d
+BUFF_SIZE	libft/inc/ft_printf.h	/^# define BUFF_SIZE /;"	d
+CC	libft/Makefile	/^CC = gcc$/;"	m
+CFLAGS	libft/Makefile	/^CFLAGS = -Wall -Wextra -Werror$/;"	m
+CONVERTER_H	libft/inc/converter.h	/^# define CONVERTER_H$/;"	d
+CONVERT_B	libft/inc/ft_printf.h	/^# define CONVERT_B	/;"	d
+CONVERT_C	libft/inc/ft_printf.h	/^# define CONVERT_C	/;"	d
+CONVERT_D	libft/inc/ft_printf.h	/^# define CONVERT_D	/;"	d
+CONVERT_F	libft/inc/ft_printf.h	/^# define CONVERT_F	/;"	d
+CONVERT_G	libft/inc/ft_printf.h	/^# define CONVERT_G	/;"	d
+CONVERT_GC	libft/inc/ft_printf.h	/^# define CONVERT_GC	/;"	d
+CONVERT_GD	libft/inc/ft_printf.h	/^# define CONVERT_GD	/;"	d
+CONVERT_GF	libft/inc/ft_printf.h	/^# define CONVERT_GF	/;"	d
+CONVERT_GO	libft/inc/ft_printf.h	/^# define CONVERT_GO	/;"	d
+CONVERT_GR	libft/inc/ft_printf.h	/^# define CONVERT_GR	/;"	d
+CONVERT_GS	libft/inc/ft_printf.h	/^# define CONVERT_GS	/;"	d
+CONVERT_GU	libft/inc/ft_printf.h	/^# define CONVERT_GU	/;"	d
+CONVERT_GX	libft/inc/ft_printf.h	/^# define CONVERT_GX	/;"	d
+CONVERT_I	libft/inc/ft_printf.h	/^# define CONVERT_I	/;"	d
+CONVERT_K	libft/inc/ft_printf.h	/^# define CONVERT_K	/;"	d
+CONVERT_M	libft/inc/ft_printf.h	/^# define CONVERT_M	/;"	d
+CONVERT_O	libft/inc/ft_printf.h	/^# define CONVERT_O	/;"	d
+CONVERT_P	libft/inc/ft_printf.h	/^# define CONVERT_P	/;"	d
+CONVERT_R	libft/inc/ft_printf.h	/^# define CONVERT_R	/;"	d
+CONVERT_S	libft/inc/ft_printf.h	/^# define CONVERT_S	/;"	d
+CONVERT_U	libft/inc/ft_printf.h	/^# define CONVERT_U	/;"	d
+CONVERT_X	libft/inc/ft_printf.h	/^# define CONVERT_X	/;"	d
+CONVERT_Z	libft/inc/ft_printf.h	/^# define CONVERT_Z	/;"	d
+CONV_D	libft/Makefile	/^CONV_D = converter\/$/;"	m
+CONV_S	libft/Makefile	/^CONV_S = get_converter.c					\\$/;"	m
+CYAN	libft/inc/ft_printf.h	/^# define CYAN	/;"	d
+DECEMBER	libft/inc/ft_time.h	/^# define DECEMBER /;"	d
+FEBRUARY	libft/inc/ft_time.h	/^# define FEBRUARY /;"	d
+FRIDAY	libft/inc/ft_time.h	/^# define FRIDAY /;"	d
+FT_PRINTF_H	libft/inc/ft_printf.h	/^# define FT_PRINTF_H$/;"	d
+FT_TIME_H	libft/inc/ft_time.h	/^# define FT_TIME_H$/;"	d
+GET_B	libft/inc/ft_printf.h	/^# define GET_B	/;"	d
+GET_C	libft/inc/ft_printf.h	/^# define GET_C	/;"	d
+GET_D	libft/inc/ft_printf.h	/^# define GET_D	/;"	d
+GET_F	libft/inc/ft_printf.h	/^# define GET_F	/;"	d
+GET_G	libft/inc/ft_printf.h	/^# define GET_G	/;"	d
+GET_GC	libft/inc/ft_printf.h	/^# define GET_GC	/;"	d
+GET_GD	libft/inc/ft_printf.h	/^# define GET_GD	/;"	d
+GET_GF	libft/inc/ft_printf.h	/^# define GET_GF	/;"	d
+GET_GO	libft/inc/ft_printf.h	/^# define GET_GO	/;"	d
+GET_GR	libft/inc/ft_printf.h	/^# define GET_GR	/;"	d
+GET_GS	libft/inc/ft_printf.h	/^# define GET_GS	/;"	d
+GET_GU	libft/inc/ft_printf.h	/^# define GET_GU	/;"	d
+GET_GX	libft/inc/ft_printf.h	/^# define GET_GX	/;"	d
+GET_I	libft/inc/ft_printf.h	/^# define GET_I	/;"	d
+GET_K	libft/inc/ft_printf.h	/^# define GET_K	/;"	d
+GET_M	libft/inc/ft_printf.h	/^# define GET_M	/;"	d
+GET_NULL	libft/inc/ft_printf.h	/^# define GET_NULL	/;"	d
+GET_O	libft/inc/ft_printf.h	/^# define GET_O	/;"	d
+GET_PTR	libft/inc/ft_printf.h	/^# define GET_PTR	/;"	d
+GET_R	libft/inc/ft_printf.h	/^# define GET_R	/;"	d
+GET_S	libft/inc/ft_printf.h	/^# define GET_S	/;"	d
+GET_STAR	libft/inc/ft_printf.h	/^# define GET_STAR	/;"	d
+GET_U	libft/inc/ft_printf.h	/^# define GET_U	/;"	d
+GET_X	libft/inc/ft_printf.h	/^# define GET_X	/;"	d
+GREEN	Makefile	/^GREEN = "\\033[1;38;2;0;170;101m"$/;"	m
+GREEN	libft/inc/ft_printf.h	/^# define GREEN	/;"	d
+GREY	libft/inc/ft_printf.h	/^# define GREY	/;"	d
+HEADER	libft/Makefile	/^HEADER = inc\/$/;"	m
+HOSTTYPE	Makefile	/^HOSTTYPE := $(shell uname -m)_$(shell uname -s)$/;"	m
+HSIZE	inc/malloc.h	/^# define HSIZE /;"	d
+INCS	Makefile	/^INCS = -I$(LIBFT_PATH)\/inc -I$(INC_DIR)$/;"	m
+INC_DIR	Makefile	/^INC_DIR = inc\/$/;"	m
+JANUARY	libft/inc/ft_time.h	/^# define JANUARY /;"	d
+JULY	libft/inc/ft_time.h	/^# define JULY /;"	d
+JUNE	libft/inc/ft_time.h	/^# define JUNE /;"	d
+LG	Makefile	/^LG = "\\033[1;38;2;167;244;66m"$/;"	m
+LIBFT_H	libft/inc/libft.h	/^# define LIBFT_H$/;"	d
+LIBFT_LIB	Makefile	/^LIBFT_LIB = $(LIBFT_PATH)\/libft.a$/;"	m
+LIBFT_LINK	Makefile	/^LIBFT_LINK = -L$(LIBFT_PATH) -lft$/;"	m
+LIBFT_PATH	Makefile	/^LIBFT_PATH = libft$/;"	m
+LINKNAME	Makefile	/^LINKNAME = libft_malloc_$(HOSTTYPE).so$/;"	m
+MALLOC_H	inc/malloc.h	/^#define MALLOC_H$/;"	d
+MALLOC_LINK	Makefile	/^MALLOC_LINK = -L. -lft_malloc$/;"	m
+MAPPING	inc/malloc.h	/^# define MAPPING /;"	d
+MARCH	libft/inc/ft_time.h	/^# define MARCH /;"	d
+MAY	libft/inc/ft_time.h	/^# define MAY /;"	d
+MBLUE	inc/malloc.h	/^# define MBLUE /;"	d
+MGREEN	inc/malloc.h	/^# define MGREEN /;"	d
+MLG	inc/malloc.h	/^# define MLG /;"	d
+MONDAY	libft/inc/ft_time.h	/^# define MONDAY /;"	d
+MORANGE	inc/malloc.h	/^# define MORANGE /;"	d
+MPURPLE	inc/malloc.h	/^# define MPURPLE /;"	d
+MRED	inc/malloc.h	/^# define MRED /;"	d
+MWHITE	inc/malloc.h	/^# define MWHITE /;"	d
+MYELLO	inc/malloc.h	/^# define MYELLO /;"	d
+NAME	Makefile	/^NAME = libft_malloc.so$/;"	m
+NAME	libft/Makefile	/^NAME = libft.a$/;"	m
+NOVEMBER	libft/inc/ft_time.h	/^# define NOVEMBER /;"	d
+OBJS	Makefile	/^OBJS = $(addprefix $(OBJS_DIR), $(SRC:.c=.o))$/;"	m
+OBJS	libft/Makefile	/^OBJS = $(addprefix $(OBJ_D), $(SRCS:.c=.o))$/;"	m
+OBJS1	Makefile	/^OBJS1 = $(addprefix $(OBJS_DIR), $(TEST:.c=.o))$/;"	m
+OBJS_DIR	Makefile	/^OBJS_DIR = objs\/$/;"	m
+OBJ_D	libft/Makefile	/^OBJ_D = objs\/$/;"	m
+OCTOBER	libft/inc/ft_time.h	/^# define OCTOBER /;"	d
+OPT_APS	libft/inc/ft_printf.h	/^# define OPT_APS /;"	d
+OPT_H	libft/inc/ft_printf.h	/^# define OPT_H /;"	d
+OPT_HASH	libft/inc/ft_printf.h	/^# define OPT_HASH /;"	d
+OPT_HH	libft/inc/ft_printf.h	/^# define OPT_HH /;"	d
+OPT_HSTAR	libft/inc/ft_printf.h	/^# define OPT_HSTAR /;"	d
+OPT_J	libft/inc/ft_printf.h	/^# define OPT_J /;"	d
+OPT_L	libft/inc/ft_printf.h	/^# define OPT_L /;"	d
+OPT_LL	libft/inc/ft_printf.h	/^# define OPT_LL /;"	d
+OPT_MINUS	libft/inc/ft_printf.h	/^# define OPT_MINUS /;"	d
+OPT_PLUS	libft/inc/ft_printf.h	/^# define OPT_PLUS /;"	d
+OPT_PREC	libft/inc/ft_printf.h	/^# define OPT_PREC /;"	d
+OPT_SPACE	libft/inc/ft_printf.h	/^# define OPT_SPACE /;"	d
+OPT_STAR	libft/inc/ft_printf.h	/^# define OPT_STAR /;"	d
+OPT_Z	libft/inc/ft_printf.h	/^# define OPT_Z /;"	d
+OPT_ZERO	libft/inc/ft_printf.h	/^# define OPT_ZERO /;"	d
+ORANGE	Makefile	/^ORANGE = "\\033[1;38;2;255;120;10m"$/;"	m
+PAGESIZE	inc/malloc.h	/^# define PAGESIZE /;"	d
+PINK	libft/inc/ft_printf.h	/^# define PINK	/;"	d
+PURPLE	Makefile	/^PURPLE = "\\033[1;38;2;150;75;255m"$/;"	m
+RED	Makefile	/^RED = "\\033[1;38;2;225;20;20m"$/;"	m
+RED	libft/inc/ft_printf.h	/^# define RED	/;"	d
+RM	libft/Makefile	/^RM = rm -rf$/;"	m
+SATURDAY	libft/inc/ft_time.h	/^# define SATURDAY /;"	d
+SEPTEMBER	libft/inc/ft_time.h	/^# define SEPTEMBER /;"	d
+SMALL	inc/malloc.h	/^# define SMALL /;"	d
+SRC	Makefile	/^SRC = malloc.c		\\$/;"	m
+SRCS	libft/Makefile	/^SRCS = 	ft_memset.c										\\$/;"	m
+SRC_DIR	Makefile	/^SRC_DIR = src\/$/;"	m
+SUNDAY	libft/inc/ft_time.h	/^# define SUNDAY /;"	d
+TEST	Makefile	/^TEST = main.c$/;"	m
+TEST_DIR	Makefile	/^TEST_DIR = test\/$/;"	m
+TEST_MAIN	Makefile	/^TEST_MAIN = malloc_test$/;"	m
+THURSDAY	libft/inc/ft_time.h	/^# define THURSDAY /;"	d
+TINY	inc/malloc.h	/^# define TINY /;"	d
+TOOL_D	libft/Makefile	/^TOOL_D = tools\/$/;"	m
+TOOL_S	libft/Makefile	/^TOOL_S = float_to_string.c						\\$/;"	m
+TUESDAY	libft/inc/ft_time.h	/^# define TUESDAY /;"	d
+USE	inc/malloc.h	/^# define USE /;"	d
+WEDNESDAY	libft/inc/ft_time.h	/^# define WEDNESDAY /;"	d
+WHITE	Makefile	/^WHITE = "\\033[1;38;2;255;250;232m"$/;"	m
+WHITE	libft/inc/ft_printf.h	/^# define WHITE	/;"	d
+YELLO	Makefile	/^YELLO = "\\033[1;38;2;255;200;0m"$/;"	m
+YELLOW	libft/inc/ft_printf.h	/^# define YELLOW	/;"	d
+apply_after_flag	libft/converter/convert_u.c	/^void			apply_after_flag(t_format *data, size_t n_len)$/;"	f
+apply_flag	libft/ft_parse.c	/^void			apply_flag(t_format *data)$/;"	f
+apply_half_flag	libft/converter/convert_d.c	/^static void		apply_half_flag(t_format *data, char c, size_t len_cnb)$/;"	f	file:
+apply_half_flag	libft/converter/convert_f.c	/^static void		apply_half_flag(t_format *data,$/;"	f	file:
+apply_half_flag	libft/converter/convert_gx.c	/^static void		apply_half_flag(t_format *data, size_t n_len, int n)$/;"	f	file:
+apply_half_flag	libft/converter/convert_o.c	/^static void			apply_half_flag(t_format *data, size_t n_len, int f)$/;"	f	file:
+apply_half_flag	libft/converter/convert_p.c	/^static void		apply_half_flag(t_format *data, size_t n_len)$/;"	f	file:
+apply_half_flag	libft/converter/convert_u.c	/^void			apply_half_flag(t_format *data,$/;"	f
+apply_half_flag	libft/converter/convert_x.c	/^static void		apply_half_flag(t_format *data, size_t n_len, int n)$/;"	f	file:
+apply_sign_flags	libft/converter/convert_f.c	/^static void		apply_sign_flags(t_format *data, double n)$/;"	f	file:
+apply_specifier	libft/converter/convert_d.c	/^static void		apply_specifier(t_format *data, intmax_t *n)$/;"	f	file:
+apply_specifier	libft/converter/convert_f.c	/^static void		apply_specifier(t_format *data, double *n)$/;"	f	file:
+apply_specifier	libft/converter/convert_gx.c	/^static void		apply_specifier(t_format *data, uintmax_t *n)$/;"	f	file:
+apply_specifier	libft/converter/convert_o.c	/^static void			apply_specifier(t_format *data, uintmax_t *n)$/;"	f	file:
+apply_specifier	libft/converter/convert_u.c	/^static void		apply_specifier(t_format *data, uintmax_t *n)$/;"	f	file:
+apply_specifier	libft/converter/convert_x.c	/^static void		apply_specifier(t_format *data, uintmax_t *n)$/;"	f	file:
+arg	libft/inc/ft_printf.h	/^	va_list			arg;$/;"	m	struct:s_format
+base	libft/inc/converter.h	/^	int						base;$/;"	m	struct:s_convf
+block_alloc	src/malloc.c	/^void	*block_alloc(t_block *last, size_t sf, size_t size)$/;"	f
+buff	libft/inc/ft_printf.h	/^	char			buff[BUFF_SIZE];$/;"	m	struct:s_format
+cast	libft/inc/converter.h	/^	unsigned long			cast;$/;"	m	struct:s_convf
+char_valid	libft/ft_atoi_base.c	/^int		char_valid(char c, int base)$/;"	f
+cnt_line	libft/get_next_line.c	/^int			cnt_line(char *s)$/;"	f
+code	libft/inc/ft_printf.h	/^	char				*code;$/;"	m	struct:s_color
+color	libft/inc/ft_printf.h	/^	char				*color;$/;"	m	struct:s_color
+color_end	libft/converter/convert_color.c	/^size_t		color_end(const char *str)$/;"	f
+color_specifier	libft/converter/convert_color.c	/^char		*color_specifier(const char *cmp)$/;"	f
+content	libft/inc/libft.h	/^	void			*content;$/;"	m	struct:s_list
+content_size	libft/inc/libft.h	/^	size_t			content_size;$/;"	m	struct:s_list
+conv_star	libft/converter/convert_star.c	/^void	conv_star(t_format *data)$/;"	f
+convert_b	libft/converter/convert_b.c	/^void				convert_b(t_format *data)$/;"	f
+convert_c	libft/converter/convert_c.c	/^void			convert_c(t_format *data)$/;"	f
+convert_d	libft/converter/convert_d.c	/^void			convert_d(t_format *data)$/;"	f
+convert_f	libft/converter/convert_f.c	/^void			convert_f(t_format *data)$/;"	f
+convert_gc	libft/converter/convert_gc.c	/^void		convert_gc(t_format *data)$/;"	f
+convert_gr	libft/converter/convert_gr.c	/^void			convert_gr(t_format *data)$/;"	f
+convert_gs	libft/converter/convert_gs.c	/^void			convert_gs(t_format *data)$/;"	f
+convert_gx	libft/converter/convert_gx.c	/^void			convert_gx(t_format *data)$/;"	f
+convert_k	libft/converter/convert_k.c	/^void				convert_k(t_format *data)$/;"	f
+convert_m	libft/converter/get_converter.c	/^void			convert_m(t_format *data)$/;"	f
+convert_o	libft/converter/convert_o.c	/^void				convert_o(t_format *data)$/;"	f
+convert_p	libft/converter/convert_p.c	/^void			convert_p(t_format *data)$/;"	f
+convert_r	libft/converter/convert_r.c	/^void			convert_r(t_format *data)$/;"	f
+convert_s	libft/converter/convert_s.c	/^void			convert_s(t_format *data)$/;"	f
+convert_u	libft/converter/convert_u.c	/^void			convert_u(t_format *data)$/;"	f
+convert_x	libft/converter/convert_x.c	/^void			convert_x(t_format *data)$/;"	f
+copy	libft/inc/ft_printf.h	/^	va_list			copy;$/;"	m	struct:s_format
+count_dec	libft/ft_itoa.c	/^static int		count_dec(int *n, int *sign)$/;"	f	file:
+count_dec	libft/tools/ft_intmax_toa.c	/^static uintmax_t	count_dec(int *nb_len, intmax_t n)$/;"	f	file:
+count_dec	libft/tools/ft_utoa.c	/^static int		count_dec(int *n)$/;"	f	file:
+create_node	libft/tools/get_valist.c	/^void			create_node(t_va_list **head, t_format *data, int type)$/;"	f
+d_len	libft/inc/converter.h	/^	size_t					d_len;$/;"	m	struct:s_convf
+d_pos	libft/inc/converter.h	/^	size_t					d_pos;$/;"	m	struct:s_convf
+day	libft/inc/ft_time.h	/^	unsigned int	day;$/;"	m	struct:s_ftime
+dot_part_conv	libft/tools/float_to_string.c	/^void				dot_part_conv(t_format *data, t_convf *ptr)$/;"	f
+double_to_int	libft/tools/float_to_string.c	/^void				double_to_int(t_convf *ptr)$/;"	f
+fd	libft/inc/ft_printf.h	/^	int				*fd;$/;"	m	struct:s_format
+fill_buff	libft/converter/convert_k.c	/^size_t				fill_buff(char *buff, t_ftime *ptr)$/;"	f
+find_fit	src/malloc.c	/^void *find_fit(t_block **last, size_t sf, size_t size)$/;"	f
+flag	libft/inc/ft_printf.h	/^	t_flag			flag;$/;"	m	struct:s_format
+float_to_string	libft/tools/float_to_string.c	/^char				*float_to_string(t_format *data, t_convf *ptr)$/;"	f
+free_lst	libft/ft_dprintf.c	/^static void		free_lst(t_va_list *head)$/;"	f	file:
+free_lst	libft/ft_printf.c	/^void		free_lst(t_va_list *head)$/;"	f
+ft_atoi	libft/ft_atoi.c	/^int		ft_atoi(const char *str)$/;"	f
+ft_atoi_base	libft/ft_atoi_base.c	/^int		ft_atoi_base(char *str, int base)$/;"	f
+ft_atoi_pf	libft/tools/get_flags.c	/^static int		ft_atoi_pf(t_format *data)$/;"	f	file:
+ft_bzero	libft/ft_bzero.c	/^void	ft_bzero(void *s, size_t n)$/;"	f
+ft_convert_base	libft/tools/convert_base.c	/^char			*ft_convert_base(intmax_t n, int base,$/;"	f
+ft_convert_ubase	libft/tools/convert_ubase.c	/^char			*ft_convert_ubase(uintmax_t n, int base,$/;"	f
+ft_count_occ	libft/ft_count_occ.c	/^int		ft_count_occ(char *s, char c)$/;"	f
+ft_count_word	libft/ft_count_word.c	/^int		ft_count_word(char *str)$/;"	f
+ft_count_words	libft/ft_strsplit.c	/^static int			ft_count_words(const char *s, char c)$/;"	f	file:
+ft_doublelen	libft/tools/len_func.c	/^void			ft_doublelen(t_convf *ptr)$/;"	f
+ft_dprintf	libft/ft_dprintf.c	/^int				ft_dprintf(int fd, const char *str, ...)$/;"	f
+ft_dprintf_buff	libft/ft_dprintf.c	/^static void		ft_dprintf_buff(t_format *data)$/;"	f	file:
+ft_intcmp_void	libft/ft_intcmp_void.c	/^int		ft_intcmp_void(void *a, void *b)$/;"	f
+ft_intlen_base	libft/tools/len_func.c	/^size_t			ft_intlen_base(intmax_t n, int base)$/;"	f
+ft_intmax_toa	libft/tools/ft_intmax_toa.c	/^char				*ft_intmax_toa(intmax_t n)$/;"	f
+ft_isalnum	libft/ft_isalnum.c	/^int		ft_isalnum(int c)$/;"	f
+ft_isalpha	libft/ft_isalpha.c	/^int		ft_isalpha(int c)$/;"	f
+ft_isascii	libft/ft_isascii.c	/^int		ft_isascii(int c)$/;"	f
+ft_isdigit	libft/ft_isdigit.c	/^int		ft_isdigit(int c)$/;"	f
+ft_isprint	libft/ft_isprint.c	/^int		ft_isprint(int c)$/;"	f
+ft_isspace	libft/ft_isspace.c	/^int		ft_isspace(int c)$/;"	f
+ft_itoa	libft/ft_itoa.c	/^char			*ft_itoa(int n)$/;"	f
+ft_lstadd	libft/ft_lstadd.c	/^void	ft_lstadd(t_list **alst, t_list *new)$/;"	f
+ft_lstdel	libft/ft_lstdel.c	/^void	ft_lstdel(t_list **alst, void (*del)(void*, size_t))$/;"	f
+ft_lstdelone	libft/ft_lstdelone.c	/^void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))$/;"	f
+ft_lstiter	libft/ft_lstiter.c	/^void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))$/;"	f
+ft_lstmap	libft/ft_lstmap.c	/^t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))$/;"	f
+ft_lstnew	libft/ft_lstnew.c	/^t_list		*ft_lstnew(void const *content, size_t content_size)$/;"	f
+ft_mallocd2	libft/ft_strsplit.c	/^char				*ft_mallocd2(const char *s, char c, int *i)$/;"	f
+ft_memalloc	libft/ft_memalloc.c	/^void	*ft_memalloc(size_t size)$/;"	f
+ft_memccpy	libft/ft_memccpy.c	/^void	*ft_memccpy(void *dst, const void *src, int c, size_t n)$/;"	f
+ft_memchr	libft/ft_memchr.c	/^void	*ft_memchr(const void *s, int c, size_t n)$/;"	f
+ft_memcmp	libft/ft_memcmp.c	/^int		ft_memcmp(const void *s1, const void *s2, size_t n)$/;"	f
+ft_memcpy	libft/ft_memcpy.c	/^void	*ft_memcpy(void *dst, const void *src, size_t n)$/;"	f
+ft_memdel	libft/ft_memdel.c	/^void	ft_memdel(void **ap)$/;"	f
+ft_memmove	libft/ft_memmove.c	/^void	*ft_memmove(void *dst, const void *src, size_t len)$/;"	f
+ft_memset	libft/ft_memset.c	/^void	*ft_memset(void *b, int c, size_t len)$/;"	f
+ft_parse	libft/ft_parse.c	/^void			ft_parse(t_format *data)$/;"	f
+ft_preparse	libft/ft_parse.c	/^void			ft_preparse(t_format *data)$/;"	f
+ft_print_buff	libft/ft_printf.c	/^static void	ft_print_buff(t_format *data)$/;"	f	file:
+ft_printf	libft/ft_printf.c	/^int			ft_printf(const char *str, ...)$/;"	f
+ft_putchar	libft/ft_putchar.c	/^void	ft_putchar(char c)$/;"	f
+ft_putchar_fd	libft/ft_putchar_fd.c	/^void	ft_putchar_fd(char c, int fd)$/;"	f
+ft_putendl	libft/ft_putendl.c	/^void	ft_putendl(char const *s)$/;"	f
+ft_putendl_fd	libft/ft_putendl_fd.c	/^void	ft_putendl_fd(char const *s, int fd)$/;"	f
+ft_putnbr	libft/ft_putnbr.c	/^void	ft_putnbr(int nb)$/;"	f
+ft_putnbr_fd	libft/ft_putnbr_fd.c	/^void	ft_putnbr_fd(int n, int fd)$/;"	f
+ft_putsnbr	libft/ft_putsnbr.c	/^void	ft_putsnbr(char *s, int n)$/;"	f
+ft_putstr	libft/ft_putstr.c	/^void	ft_putstr(char const *s)$/;"	f
+ft_putstr_fd	libft/ft_putstr_fd.c	/^void	ft_putstr_fd(char const *s, int fd)$/;"	f
+ft_puttab	libft/ft_puttab.c	/^void	ft_puttab(char **tab)$/;"	f
+ft_putwchar	libft/tools/write_wchar.c	/^void	ft_putwchar(t_format *data, wchar_t c)$/;"	f
+ft_putwstr	libft/tools/write_wchar.c	/^void	ft_putwstr(t_format *data, wchar_t *str, size_t len)$/;"	f
+ft_rand	libft/ft_rand.c	/^int			ft_rand(int min, int max, void *random)$/;"	f
+ft_read_fill	libft/get_next_line.c	/^int			ft_read_fill(char **s, int fd)$/;"	f
+ft_reverse	libft/ft_reverse.c	/^char	*ft_reverse(char *str)$/;"	f
+ft_sort_all	libft/ft_sort_all.c	/^void	ft_sort_all(void *tab, int (*cmp)(void*, void*), int size, size_t type)$/;"	f
+ft_space	libft/ft_space.c	/^int		ft_space(int c)$/;"	f
+ft_space	libft/ft_strtrim.c	/^static int			ft_space(int c)$/;"	f	file:
+ft_strcat	libft/ft_strcat.c	/^char	*ft_strcat(char *dest, const char *src)$/;"	f
+ft_strchr	libft/ft_strchr.c	/^char	*ft_strchr(const char *s, int c)$/;"	f
+ft_strclr	libft/ft_strclr.c	/^void	ft_strclr(char *s)$/;"	f
+ft_strcmp	libft/ft_strcmp.c	/^int		ft_strcmp(const char *s1, const char *s2)$/;"	f
+ft_strcmp_void	libft/ft_strcmp_void.c	/^int		ft_strcmp_void(void *a, void *b)$/;"	f
+ft_strcpy	libft/ft_strcpy.c	/^char	*ft_strcpy(char *dest, const char *src)$/;"	f
+ft_strdel	libft/ft_strdel.c	/^void	ft_strdel(char **as)$/;"	f
+ft_strdup	libft/ft_strdup.c	/^char	*ft_strdup(const char *s1)$/;"	f
+ft_strequ	libft/ft_strequ.c	/^int		ft_strequ(char const *s1, char const *s2)$/;"	f
+ft_strfjoin	libft/ft_strfjoin.c	/^char	*ft_strfjoin(char const *s1, char const *s2)$/;"	f
+ft_striter	libft/ft_striter.c	/^void	ft_striter(char *s, void (*f)(char *))$/;"	f
+ft_striteri	libft/ft_striteri.c	/^void	ft_striteri(char *s, void (*f)(unsigned int, char *))$/;"	f
+ft_strjoin	libft/ft_strjoin.c	/^char	*ft_strjoin(char const *s1, char const *s2)$/;"	f
+ft_strjoin_c	libft/ft_strjoin_c.c	/^char	*ft_strjoin_c(char const *s1, char c)$/;"	f
+ft_strjoinfree	libft/ft_strjoinfree.c	/^char	*ft_strjoinfree(char *s1, char *s2, int i)$/;"	f
+ft_strlcat	libft/ft_strlcat.c	/^size_t		ft_strlcat(char *dst, const char *src, size_t size)$/;"	f
+ft_strlen	libft/ft_strlen.c	/^size_t		ft_strlen(const char *s)$/;"	f
+ft_strmap	libft/ft_strmap.c	/^char	*ft_strmap(char const *s, char (*f)(char))$/;"	f
+ft_strmapi	libft/ft_strmapi.c	/^char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))$/;"	f
+ft_strncat	libft/ft_strncat.c	/^char	*ft_strncat(char *dest, const char *src, size_t n)$/;"	f
+ft_strnchr	libft/ft_parse.c	/^static char		*ft_strnchr(const char *s, int c, size_t len)$/;"	f	file:
+ft_strncmp	libft/ft_strncmp.c	/^int		ft_strncmp(const char *s1, const char *s2, size_t n)$/;"	f
+ft_strncpy	libft/ft_strncpy.c	/^char	*ft_strncpy(char *dest, const char *src, size_t n)$/;"	f
+ft_strnequ	libft/ft_strnequ.c	/^int		ft_strnequ(char const *s1, char const *s2, size_t n)$/;"	f
+ft_strnew	libft/ft_strnew.c	/^char	*ft_strnew(size_t size)$/;"	f
+ft_strnstr	libft/ft_strnstr.c	/^char	*ft_strnstr(const char *s1, const char *s2, size_t n)$/;"	f
+ft_strnword	libft/ft_strnword.c	/^int		ft_strnword(char *s1, char *s2)$/;"	f
+ft_strrchr	libft/ft_strrchr.c	/^char	*ft_strrchr(const char *s, int c)$/;"	f
+ft_strrev	libft/ft_strrev.c	/^char		*ft_strrev(char *str)$/;"	f
+ft_strsplit	libft/ft_strsplit.c	/^char				**ft_strsplit(const char *s, char c)$/;"	f
+ft_strstr	libft/ft_strstr.c	/^char	*ft_strstr(const char *str, const char *needle)$/;"	f
+ft_strsub	libft/ft_strsub.c	/^char	*ft_strsub(char const *s, unsigned int start, size_t len)$/;"	f
+ft_strtrim	libft/ft_strtrim.c	/^char				*ft_strtrim(char const *s)$/;"	f
+ft_swap	libft/ft_swap.c	/^void	ft_swap(char *a, char *b)$/;"	f
+ft_swap_all	libft/ft_swap_all.c	/^void	ft_swap_all(void *a, void *b, size_t type)$/;"	f
+ft_tolower	libft/ft_tolower.c	/^int		ft_tolower(int c)$/;"	f
+ft_toupper	libft/ft_toupper.c	/^int		ft_toupper(int c)$/;"	f
+ft_touppercase	libft/ft_touppercase.c	/^char		*ft_touppercase(char *str)$/;"	f
+ft_uintlen_base	libft/tools/len_func.c	/^size_t			ft_uintlen_base(uintmax_t n, int base)$/;"	f
+ft_utoa	libft/tools/ft_utoa.c	/^char			*ft_utoa(int n)$/;"	f
+ft_wstrlen	libft/tools/write_wchar.c	/^size_t	ft_wstrlen(const wchar_t *str)$/;"	f
+func	libft/inc/ft_printf.h	/^	void				(*func)(t_format *data);$/;"	m	struct:s_convert
+func	libft/inc/ft_printf.h	/^	void				(*func)(void *ptr, va_list *args);$/;"	m	struct:s_getarg
+func	libft/inc/ft_printf.h	/^	void				(*func)(void *ptr, va_list *args);$/;"	m	struct:s_va_list
+g_mem	src/malloc.c	/^t_block *g_mem[3] = {NULL, NULL, NULL};$/;"	v
+get_aps	libft/tools/apostrophe_flag.c	/^void			get_aps(t_format *data, char *str, unsigned int len)$/;"	f
+get_arg_func	libft/tools/get_valist.c	/^void			(*get_arg_func(t_format *data))(void *dst, va_list *args)$/;"	f
+get_arg_n	libft/tools/get_valist.c	/^void			get_arg_n(t_format *data, void *dst)$/;"	f
+get_char_conv	libft/tools/get_char_conv.c	/^char	get_char_conv(t_format *data)$/;"	f
+get_chunk	libft/converter/convert_color.c	/^static char	*get_chunk(t_format *data, char end)$/;"	f	file:
+get_color	libft/converter/convert_color.c	/^int			get_color(t_format *data)$/;"	f
+get_converter	libft/converter/get_converter.c	/^int				get_converter(t_format *data)$/;"	f
+get_data_ptr	libft/converter/convert_d.c	/^static void		get_data_ptr(t_format *data, char *c, intmax_t n)$/;"	f	file:
+get_date	libft/tools/get_date.c	/^void					get_date(unsigned int n, t_ftime *ptr)$/;"	f
+get_day	libft/tools/get_date.c	/^char					*get_day(unsigned int n)$/;"	f
+get_days_month	libft/tools/get_date.c	/^unsigned int			get_days_month(unsigned int index)$/;"	f
+get_dday	libft/tools/get_date.c	/^void					get_dday(unsigned int n,$/;"	f
+get_end_prec	libft/converter/convert_gs.c	/^static int		get_end_prec(size_t *ret, const wchar_t *w, const size_t max)$/;"	f	file:
+get_flags	libft/tools/get_flags.c	/^void			get_flags(t_format *data)$/;"	f
+get_lstarg	libft/tools/get_valist.c	/^t_va_list		*get_lstarg(t_va_list *head, short id)$/;"	f
+get_month	libft/tools/get_date.c	/^char					*get_month(unsigned int month)$/;"	f
+get_next_line	libft/get_next_line.c	/^int			get_next_line(const int fd, char **line)$/;"	f
+get_precision	libft/converter/convert_gs.c	/^static size_t	get_precision(const wchar_t *str, const size_t max)$/;"	f	file:
+get_precision	libft/tools/get_flags.c	/^void			get_precision(t_format *data)$/;"	f
+get_specifier	libft/tools/get_specifier.c	/^int					get_specifier(t_format *data)$/;"	f
+get_star	libft/tools/get_flags.c	/^void			get_star(t_format *data)$/;"	f
+get_valist	libft/tools/get_valist.c	/^void			get_valist(t_format *data)$/;"	f
+get_varg	libft/ft_parse.c	/^void			get_varg(t_format *data)$/;"	f
+getarg_float	libft/tools/get_arg_int.c	/^void		getarg_float(void *ptr, va_list *args)$/;"	f
+getarg_int	libft/tools/get_arg_int.c	/^void		getarg_int(void *ptr, va_list *args)$/;"	f
+getarg_null	libft/tools/get_args.c	/^void		getarg_null(void *dst, va_list *args)$/;"	f
+getarg_ptr	libft/tools/get_args.c	/^void		getarg_ptr(void *ptr, va_list *args)$/;"	f
+getarg_uint	libft/tools/get_arg_int.c	/^void		getarg_uint(void *dst, va_list *args)$/;"	f
+getarg_uintmaxt	libft/tools/get_arg_int.c	/^void		getarg_uintmaxt(void *dst, va_list *args)$/;"	f
+getarg_wchar	libft/tools/get_args.c	/^void		getarg_wchar(void *dst, va_list *args)$/;"	f
+getarg_wstr	libft/tools/get_args.c	/^void		getarg_wstr(void *dst, va_list *args)$/;"	f
+head	libft/inc/ft_printf.h	/^	char			*head;$/;"	m	struct:s_format
+header_zone	src/tools.c	/^void	header_zone(size_t i)$/;"	f
+hour	libft/inc/ft_time.h	/^	unsigned int	hour;$/;"	m	struct:s_ftime
+id	libft/inc/ft_printf.h	/^	int					id;$/;"	m	struct:s_va_list
+id	libft/inc/ft_printf.h	/^	short				id;$/;"	m	struct:s_flag
+id	libft/inc/ft_printf.h	/^	short			id;$/;"	m	struct:s_format
+int_part_conv	libft/tools/float_to_string.c	/^void				int_part_conv(t_format *data, t_convf *ptr, size_t len)$/;"	f
+is_color	libft/converter/convert_color.c	/^static int	is_color(char *cmp, size_t n)$/;"	f	file:
+is_unreal	libft/converter/convert_f.c	/^static int		is_unreal(t_format *data, double n)$/;"	f	file:
+is_zero	libft/tools/float_to_string.c	/^void				is_zero(t_format *data, size_t len)$/;"	f
+large	inc/malloc.h	/^	large$/;"	e	enum:__anon1
+len	libft/inc/ft_printf.h	/^	int				len;$/;"	m	struct:s_format
+lst	libft/inc/ft_printf.h	/^	t_va_list		*lst;$/;"	m	struct:s_format
+main	test/main.c	/^int main(void)$/;"	f
+main_loop	libft/get_next_line.c	/^int			main_loop(char **s, char **line, char **tmp)$/;"	f
+malloc	src/malloc.c	/^void	*malloc(size_t size)$/;"	f
+min	libft/inc/ft_time.h	/^	unsigned int	min;$/;"	m	struct:s_ftime
+month	libft/inc/ft_time.h	/^	unsigned int	month;$/;"	m	struct:s_ftime
+msk	libft/tools/check_mask.c	/^int			msk(t_format *data, int mask)$/;"	f
+n	libft/inc/converter.h	/^	long double				n;$/;"	m	struct:s_convf
+n	libft/inc/ft_time.h	/^	unsigned int	n;$/;"	m	struct:s_ftime
+n_len	libft/inc/converter.h	/^	size_t					n_len;$/;"	m	struct:s_convf
+n_zero	libft/inc/converter.h	/^	size_t					n_zero;$/;"	m	struct:s_convf
+next	libft/inc/ft_printf.h	/^	struct s_va_list	*next;$/;"	m	struct:s_va_list	typeref:struct:s_va_list::s_va_list
+next	libft/inc/libft.h	/^	struct s_list	*next;$/;"	m	struct:s_list	typeref:struct:s_list::s_list
+ni	libft/inc/converter.h	/^	unsigned long long		ni;$/;"	m	struct:s_convf
+ni_size	libft/inc/converter.h	/^	size_t					ni_size;$/;"	m	struct:s_convf
+nprint_to_str	libft/converter/convert_r.c	/^void			nprint_to_str(char c, char *conv)$/;"	f
+nprint_to_str_gr	libft/converter/convert_gr.c	/^char			*nprint_to_str_gr(char c)$/;"	f
+nx	inc/malloc.h	/^	struct s_block	*nx;$/;"	m	struct:s_block	typeref:struct:s_block::s_block
+opts	libft/inc/ft_printf.h	/^	int					opts;$/;"	m	struct:s_flag
+pos	libft/inc/ft_printf.h	/^	unsigned int	pos;$/;"	m	struct:s_format
+precision	libft/inc/ft_printf.h	/^	size_t				precision;$/;"	m	struct:s_flag
+print_buff	libft/inc/ft_printf.h	/^	void			(*print_buff)(struct s_format *data);$/;"	m	struct:s_format
+print_chunk	src/tools.c	/^void	print_chunk(t_block *curr)$/;"	f
+ret	libft/inc/ft_printf.h	/^	int				ret;$/;"	m	struct:s_format
+s_block	inc/malloc.h	/^typedef struct	s_block$/;"	s
+s_color	libft/inc/ft_printf.h	/^typedef struct			s_color$/;"	s
+s_convert	libft/inc/ft_printf.h	/^typedef struct			s_convert$/;"	s
+s_convf	libft/inc/converter.h	/^typedef struct				s_convf$/;"	s
+s_flag	libft/inc/ft_printf.h	/^typedef struct			s_flag$/;"	s
+s_format	libft/inc/ft_printf.h	/^typedef struct			s_format$/;"	s
+s_ftime	libft/inc/ft_time.h	/^typedef struct		s_ftime$/;"	s
+s_getarg	libft/inc/ft_printf.h	/^typedef struct			s_getarg$/;"	s
+s_list	libft/inc/libft.h	/^typedef struct		s_list$/;"	s
+s_va_list	libft/inc/ft_printf.h	/^typedef struct			s_va_list$/;"	s
+sec	libft/inc/ft_time.h	/^	unsigned int	sec;$/;"	m	struct:s_ftime
+set_spec	libft/tools/get_specifier.c	/^void				set_spec(t_format *data, int mask, int mask2)$/;"	f
+show_alloc_mem_ex	src/tools.c	/^void	show_alloc_mem_ex(void)$/;"	f
+sign	libft/inc/converter.h	/^	int						sign;$/;"	m	struct:s_convf
+size	inc/malloc.h	/^	size_t			size;$/;"	m	struct:s_block
+size_modifier	libft/inc/ft_printf.h	/^	int					size_modifier;$/;"	m	struct:s_flag
+small	inc/malloc.h	/^	small,$/;"	e	enum:__anon1
+star	libft/inc/ft_printf.h	/^	char				star;$/;"	m	struct:s_flag
+stock_n	libft/tools/convert_base.c	/^static void		stock_n(char **str, intmax_t n, int base, char letter)$/;"	f	file:
+stock_n	libft/tools/convert_ubase.c	/^static void		stock_n(char **str, uintmax_t n, int base, char letter)$/;"	f	file:
+t_block	inc/malloc.h	/^}				t_block;$/;"	t	typeref:struct:s_block
+t_color	libft/inc/ft_printf.h	/^}						t_color;$/;"	t	typeref:struct:s_color
+t_convert	libft/inc/ft_printf.h	/^}						t_convert;$/;"	t	typeref:struct:s_convert
+t_convf	libft/inc/converter.h	/^}							t_convf;$/;"	t	typeref:struct:s_convf
+t_flag	libft/inc/ft_printf.h	/^}						t_flag;$/;"	t	typeref:struct:s_flag
+t_format	libft/inc/ft_printf.h	/^}						t_format;$/;"	t	typeref:struct:s_format
+t_ftime	libft/inc/ft_time.h	/^}					t_ftime;$/;"	t	typeref:struct:s_ftime
+t_getarg	libft/inc/ft_printf.h	/^}						t_getarg;$/;"	t	typeref:struct:s_getarg
+t_list	libft/inc/libft.h	/^}					t_list;$/;"	t	typeref:struct:s_list
+t_va_list	libft/inc/ft_printf.h	/^}						t_va_list;$/;"	t	typeref:struct:s_va_list
+tail	libft/inc/ft_printf.h	/^	char			*tail;$/;"	m	struct:s_format
+tiny	inc/malloc.h	/^	tiny,$/;"	e	enum:__anon1
+tmp_pos	libft/inc/ft_printf.h	/^	unsigned int	tmp_pos;$/;"	m	struct:s_format
+type	libft/inc/ft_printf.h	/^	char				type;$/;"	m	struct:s_convert
+type	libft/inc/ft_printf.h	/^	int					type;$/;"	m	struct:s_getarg
+type	libft/inc/ft_printf.h	/^	int					type;$/;"	m	struct:s_va_list
+value_of	libft/ft_atoi_base.c	/^int		value_of(char c)$/;"	f
+wchar_len	libft/tools/write_wchar.c	/^size_t	wchar_len(wchar_t w)$/;"	f
+width	libft/inc/ft_printf.h	/^	size_t				width;$/;"	m	struct:s_flag
+write_char	libft/tools/write_char.c	/^void	write_char(t_format *data, char c)$/;"	f
+write_char_buff	libft/converter/convert_k.c	/^void				write_char_buff(char *buff, char c, size_t *i)$/;"	f
+write_d	libft/converter/convert_d.c	/^static void		write_d(t_format *data, size_t len, char *c_nb, intmax_t nb)$/;"	f	file:
+write_float	libft/tools/write_char.c	/^void	write_float(t_format *data, char c, int j)$/;"	f
+write_nbr	libft/tools/write_char.c	/^void	write_nbr(t_format *data, uintmax_t base, uintmax_t n, char letter)$/;"	f
+write_nbr_buff	libft/converter/convert_k.c	/^void				write_nbr_buff(char *buff, unsigned int n, size_t *i)$/;"	f
+write_nstr	libft/tools/write_char.c	/^void	write_nstr(t_format *data, char *str, size_t len)$/;"	f
+write_str	libft/tools/write_char.c	/^void	write_str(t_format *data, char *str)$/;"	f
+write_str_buff	libft/converter/convert_k.c	/^void				write_str_buff(char *buff, char *str, size_t *i)$/;"	f
+write_wchar	libft/tools/write_wchar.c	/^void	write_wchar(t_format *data, wchar_t c)$/;"	f
+year	libft/inc/ft_time.h	/^	unsigned int	year;$/;"	m	struct:s_ftime
