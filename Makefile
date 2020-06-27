@@ -6,7 +6,7 @@
 #    By: dbaffier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/24 00:18:28 by dbaffier          #+#    #+#              #
-#    Updated: 2019/12/12 23:56:22 by dbaffier         ###   ########.fr        #
+#    Updated: 2020/06/27 18:20:59 by dbaffier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #
@@ -31,6 +31,7 @@ INCS = -I$(LIBFT_PATH)/inc -I$(INC_DIR)
 OBJS_DIR = objs/
 OBJS = $(addprefix $(OBJS_DIR), $(SRC:.c=.o))
 OBJS1 = $(addprefix $(OBJS_DIR), $(TEST:.c=.o))
+OBJS2 = $(addprefix $(OBJS_DIR), $(TEST2:.c=.o))
 
 SRC_DIR = src/
 SRC =  	malloc.c		\
@@ -41,6 +42,7 @@ SRC =  	malloc.c		\
 
 TEST_DIR = test/
 TEST = main.c
+TEST2 = demo.c
 
 RED = "\033[1;38;2;225;20;20m"
 ORANGE = "\033[1;38;2;255;120;10m"
@@ -64,10 +66,12 @@ $(LIBFT_LIB):
 $(NAME): $(LINKNAME)
 	@echo $(ORANGE)Creating symlink
 	@ln -fs libft_malloc_$(HOSTTYPE).so $(NAME)
-	@echo $(LG)Making $(TEST_MAIN)
-	@gcc $(CFLAGS) -fsanitize=address $(LIBFT_LINK) $(MALLOC_LINK) $(INCS) $(TEST_DIR)$(TEST) -o $(TEST_MAIN)
+	@echo $(LG)Making main_test
+	@gcc $(CFLAGS) -fsanitize=address $(LIBFT_LINK) $(MALLOC_LINK) $(INCS) $(TEST_DIR)main.c -o main_test
+	@echo $(LG)Making demo
+	@gcc $(CFLAGS) -fsanitize=address $(LIBFT_LINK) $(MALLOC_LINK) $(INCS) $(TEST_DIR)demo.c -o demo
 
-$(LINKNAME): $(OBJS) $(OBJS1)
+$(LINKNAME): $(OBJS) $(OBJS1) $(OBJS2)
 	@echo $(LG)Making $(LINKNAME)
 	@gcc -shared $(LIBFT_LINK) -o $@ $(OBJS)
 
@@ -86,6 +90,7 @@ fclean: clean
 	rm -f $(NAME)
 	rm -f $(LINKNAME)
 	rm -f $(TEST_MAIN)
+	rm -f ./demo
 
 re: fclean all
 

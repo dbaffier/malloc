@@ -10,15 +10,18 @@ void *find_fit(t_block **last, size_t sf, size_t size)
 	list = g_mem[sf];
 	while (list)
 	{
-		if (!(list->size & 0x1))
+		if (!(list->size & 0x1) && (list->size & ~0x3) >= (unsigned int)size)
 		{
-			if ((list->size & -2) > (size + HSIZE))
+			if ((list->size & ~0x3) - size > HSIZE)
 			{
 				new = (t_block *)(ADDR(list) + size);
 				ft_bzero(new, sizeof(t_block *));
-				new->size = list->size - (size + HSIZE);
-				new->nx = NULL;
-				list->size = PACK(size, 0x1);
+				new->size = (list->size & ~3) - size - HSIZE;
+				new->nx = list->nx;
+				if (list->size & 2)
+					list->size = PACK(size, 0x3);
+				else
+					list->size = PACK(size, 0x1);
 				list->nx = new;
 				return (ADDR(list));
 			}
@@ -35,11 +38,12 @@ void	*block_alloc(t_block *last, size_t sf, size_t size)
 	t_block		*next;
 	size_t		pagesize;
 
-	pagesize = sf == 0 ? TINY : SMALL;
+	pagesize = sf == 0 ? TINY_PAGE : SMALL_PAGE;
 	if (sf == 2)
-		pagesize = size + HSIZE;
-	new = (t_block *)mmap(0, ALIGN_PAGE(pagesize), MAPPING);
-	ft_bzero((char *)new, ALIGN_PAGE(pagesize));
+		pagesize = ALIGN_PAGE(size + HSIZE);
+	new = (t_block *)mmap(0, pagesize, MAPPING);
+	//P("MMAP of :", pagesize);
+	ft_bzero((unsigned char *)new, pagesize);
 	new->nx = NULL;
 	new->size = PACK(size, 0x3);
 	if (last)
@@ -50,7 +54,7 @@ void	*block_alloc(t_block *last, size_t sf, size_t size)
 	{
 		next = (t_block *)(ADDR(new) + size);
 		new->nx = next;
-		next->size = ALIGN_PAGE(pagesize) - (size + HSIZE);
+		next->size = pagesize - (size + HSIZE);
 		next->nx = NULL;
 	}
 	return (ADDR(new));

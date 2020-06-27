@@ -1,30 +1,66 @@
 #include "malloc.h"
 
+pthread_mutex_t g_lock;
+
+void	print_addr(void *ptr)
+{
+	uintptr_t	n;
+	char		str[10];
+	char		*hex;
+	int			i;
+
+	write(1, "0x", 2);
+	hex = "0123456789abcdef";
+	n = (uintptr_t)ptr;
+	str[9] = '\0';
+	i = 9;
+	while(i-- >= 0)
+	{
+		str[i] = hex[n & 15];
+		n >>= 4;
+	}
+	write(1, str, 9);
+}
+
 void	header_zone(void *p, size_t i)
 {
+	write(1, MWHITE, ft_strlen(MWHITE));
 	if (i == 0)
-		printf("%25s -- %p\n", "TINY", p);
+		write(1, "\t\tTINY -- ", 10);
 	else if (i == 1)
-		printf("%25s -- %p\n", "SMALL", p);
+		write(1, "\t\tSMALL -- ", 11);
 	else if (i == 2)
-		printf("%25s -- %p\n", "LARGE", p);
+		write(1, "\t\tLARGE -- ", 11);
+	print_addr(p);
+	write(1, "\n", 1);
 }
 
 void	print_chunk(t_block *curr)
 {
 	if (curr->size & 1)
 	{
-		printf(MGREEN);
-		printf("%20p - %p  => ", (char *)curr + HSIZE, (char *)curr + (HSIZE + (curr->size & -2)));
-		printf("%zu bytes allocated\n", curr->size & -0x4);
+		write(1, MGREEN, ft_strlen(MGREEN));
+		write(1, "\t", 1);
+		print_addr((unsigned char *)curr + HSIZE);
+		write(1, " - ", 3);
+		print_addr((unsigned char *)curr + (HSIZE + (curr->size & ~0x3)));
+		write(1, " => ", 4);
+		ft_putnbr(curr->size & ~0x3);
+		write(1, " bytes allocated", 16);
 	}
 	else
 	{
-		printf(MBLUE);
-		printf("%20p - %p  => ", (char *)curr + HSIZE, (char *)curr + (HSIZE + (curr->size & -2)));
-		printf("%zu bytes available\n", curr->size & -0x4);
+		write(1, MBLUE, ft_strlen(MBLUE));
+		write(1, "\t", 1);
+		print_addr((unsigned char *)curr + HSIZE);
+		write(1, " - ", 3);
+		print_addr((unsigned char *)curr + (HSIZE + (curr->size & ~0x3)));
+		write(1, " => ", 4);
+		ft_putnbr(curr->size & ~0x3);
+		write(1, " bytes available", 16);
 	}
-	printf(MWHITE);
+	write(1, MWHITE, ft_strlen(MWHITE));
+	write(1, "\n", 1);
 }
 
 void	show_alloc_mem_ex(void)
@@ -33,7 +69,8 @@ void	show_alloc_mem_ex(void)
 	size_t		i;
 
 	i = 0;
-	printf(MWHITE);
+	pthread_mutex_lock(&g_lock);
+	write(1, MWHITE, ft_strlen(MWHITE));
 	while (i <= large)
 	{
 		bl = g_mem[i];
@@ -46,4 +83,6 @@ void	show_alloc_mem_ex(void)
 		}
 		i++;
 	}
+	write(1, "\n\n\n", 3);
+	pthread_mutex_unlock(&g_lock);
 }

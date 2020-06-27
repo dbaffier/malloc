@@ -2,23 +2,21 @@
 
 pthread_mutex_t g_mut;
 
-static t_block	*ft_find(void *ptr, t_block **prev, size_t *grp, t_block **last_page)
+static t_block	*ft_find(void *ptr, t_block **prev, size_t *grp)
 {
 	t_block		*save;
 
 	*grp = tiny - 1;
-	while (++(*grp) <= large)
+	while (++(*grp) <= large) // loop over grp
 	{
 		save = g_mem[*grp];
-		if (prev)
+		if (prev) // save prev
 			*prev = save;
-		while (save)
+		while (save) // loop over grp list
 		{
-			if (last_page && save->nx && (save->nx->size & 2))
-				*last_page = save;
 			if ((save->size & 1) && ADDR(save) == ptr)
 				return (save);
-			if (prev)
+			if (prev)											// previous ptr
 				*prev = save;
 			save = save->nx;
 		}
@@ -28,31 +26,52 @@ static t_block	*ft_find(void *ptr, t_block **prev, size_t *grp, t_block **last_p
 
 t_block *coalescence(t_block *curr, t_block *prev)
 {
-	if (prev && !(prev->size & 1) && !(curr->size & 2))
+	size_t	f;
+
+	f = prev && prev->size & 2 ? 1 : 0;
+	if (prev && !(prev->size & 1) && !(curr->size & 2)) // if prev not malloc + curr not first MMAP
 	{
-		if (curr->nx && !(curr->nx->size & 3))
+		if (curr->nx && !(curr->nx->size & 3)) // if next + next is not malloc and not first MMAP
 		{
-			prev->size += curr->nx->size + HSIZE;
+			if (f)
+				prev->size = PACK((prev->size & ~0x3) + curr->nx->size + HSIZE, 0x2);
+			else
+				prev->size = (prev->size & ~0x3) + curr->nx->size + HSIZE;
 			prev->nx = curr->nx->nx;
 		}
 		else
 			prev->nx = curr->nx;
-		prev->size += curr->size + HSIZE;
+		if (f)
+			prev->size = PACK((prev->size & ~0x3) + (curr->size & ~0x3) + HSIZE, 0x2);
+		else
+			prev->size = (prev->size & ~0x3) + (curr->size & ~0x3) + HSIZE;
 		return (prev);
 	}
 	else
 	{
-		curr->size &= -0x2;
-		if (curr->nx && !(curr->nx->size & 3))
+		if (curr->nx && !(curr->nx->size & 3)) // if next + next not malloc and not first
 		{
-			if (!prev)
-				curr->size = PACK(curr->size + curr->nx->size + HSIZE, 0x2);
+			if (curr->size & 2)
+				curr->size = PACK((curr->size & ~0x3) + curr->nx->size + HSIZE, 0x2);
 			else
-				curr->size += curr->nx->size + HSIZE;
+				curr->size = (curr->size & ~0x3) + curr->nx->size + HSIZE;
 			curr->nx = curr->nx->nx;
 		}
 	}
 	return (curr);
+}
+
+void	adapt(size_t grp, t_block *prev)
+{
+	t_block		*list;
+
+	list = g_mem[grp];
+	while (list) // loop over grp list
+	{
+		if (list->nx && list->nx == prev)
+			list->nx = prev->nx;
+		list = list->nx;
+	}
 }
 
 void	free(void *ptr)
@@ -60,25 +79,28 @@ void	free(void *ptr)
 	size_t		grp;
 	t_block		*find;
 	t_block		*prev;
-	t_block		*last;
 
 	if (ptr == NULL)
 		return ;
+	//show_alloc_mem_ex();
+	//printf("GOING TO FREE : %p--", ptr);
 	pthread_mutex_lock(&g_mut);
-	find = ft_find(ptr, &prev, &grp, &last);
-	find->size &= -0x2;
+	if (!(find = ft_find((unsigned char *)ptr, &prev, &grp)))
+		return ;
+	find->size &= -0x2; // REMOVE MALLOCATED BYTE
 	if (grp < large)
 		find = coalescence(find, prev);
-	if ((grp == tiny && (find->size & ~2) == (size_t)ALIGN_PAGE(TINY))
-		|| (grp == small && (find->size & ~2) == (size_t )ALIGN_PAGE(SMALL)))
+	if ((grp == tiny && find && (find->size & ~0x3) == (size_t)TINY_PAGE)
+		|| (grp == small && find && (find->size & ~0x3) == (size_t )SMALL_PAGE)
+		|| grp == large)
 	{
 		if (g_mem[grp] == find)
 			g_mem[grp] = find->nx;
-		else if (prev)
+		else if (prev && prev->nx != find->nx)
 			prev->nx = find->nx;
-		if (last)
-			last->nx = last->nx->nx;
-		munmap((char *)find, find->size);
+		else
+			adapt(grp, prev);
+		munmap((unsigned char *)find, find->size & ~0x3);
 	}
 	pthread_mutex_unlock(&g_mut);
 }
