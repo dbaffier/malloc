@@ -6,7 +6,7 @@
 #    By: dbaffier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/24 00:18:28 by dbaffier          #+#    #+#              #
-#    Updated: 2020/06/27 18:20:59 by dbaffier         ###   ########.fr        #
+#    Updated: 2020/07/01 22:45:56 by dbaffier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #
@@ -15,7 +15,7 @@ HOSTTYPE := $(shell uname -m)_$(shell uname -s)
 endif
 
 NAME = libft_malloc.so
-TEST_MAIN = malloc_test
+TEST_MAIN = main_test
 LINKNAME = libft_malloc_$(HOSTTYPE).so
 
 CFLAGS += -Wall -Werror -Wextra
@@ -40,8 +40,7 @@ SRC =  	malloc.c		\
 		realloc.c		\
 		free.c
 
-TEST_DIR = test/
-TEST = main.c
+TEST_DIR = demo/
 TEST2 = demo.c
 
 RED = "\033[1;38;2;225;20;20m"
@@ -66,10 +65,8 @@ $(LIBFT_LIB):
 $(NAME): $(LINKNAME)
 	@echo $(ORANGE)Creating symlink
 	@ln -fs libft_malloc_$(HOSTTYPE).so $(NAME)
-	@echo $(LG)Making main_test
-	@gcc $(CFLAGS) -fsanitize=address $(LIBFT_LINK) $(MALLOC_LINK) $(INCS) $(TEST_DIR)main.c -o main_test
 	@echo $(LG)Making demo
-	@gcc $(CFLAGS) -fsanitize=address $(LIBFT_LINK) $(MALLOC_LINK) $(INCS) $(TEST_DIR)demo.c -o demo
+	@gcc $(CFLAGS) -fsanitize=address $(LIBFT_LINK) $(MALLOC_LINK) $(INCS) $(TEST_DIR)demo.c -o demo_dump
 
 $(LINKNAME): $(OBJS) $(OBJS1) $(OBJS2)
 	@echo $(LG)Making $(LINKNAME)
@@ -89,8 +86,7 @@ fclean: clean
 	rm -f $(LIBFT_LIB)
 	rm -f $(NAME)
 	rm -f $(LINKNAME)
-	rm -f $(TEST_MAIN)
-	rm -f ./demo
+	rm -f ./demo_dump
 
 re: fclean all
 

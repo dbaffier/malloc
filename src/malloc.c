@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   malloc.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dbaffier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/01 22:46:43 by dbaffier          #+#    #+#             */
+/*   Updated: 2020/07/01 22:49:31 by dbaffier         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "malloc.h"
 
 pthread_mutex_t g_mut;
 
-void *find_fit(t_block **last, size_t sf, size_t size)
+void	*find_fit(t_block **last, size_t sf, size_t size)
 {
 	t_block	*list;
 	t_block	*new;
@@ -10,7 +22,7 @@ void *find_fit(t_block **last, size_t sf, size_t size)
 	list = g_mem[sf];
 	while (list)
 	{
-		if (!(list->size & 0x1) && (list->size & ~0x3) >= (unsigned int)size)
+		if (!(list->size & 0x1) && (list->size & ~0x3) >= size)
 		{
 			if ((list->size & ~0x3) - size > HSIZE)
 			{
@@ -18,10 +30,8 @@ void *find_fit(t_block **last, size_t sf, size_t size)
 				ft_bzero(new, sizeof(t_block *));
 				new->size = (list->size & ~3) - size - HSIZE;
 				new->nx = list->nx;
-				if (list->size & 2)
-					list->size = PACK(size, 0x3);
-				else
-					list->size = PACK(size, 0x1);
+				list->size = (list->size & 2) ? PACK(size, 0x3)
+				: PACK(size, 0x1);
 				list->nx = new;
 				return (ADDR(list));
 			}
@@ -40,9 +50,8 @@ void	*block_alloc(t_block *last, size_t sf, size_t size)
 
 	pagesize = sf == 0 ? TINY_PAGE : SMALL_PAGE;
 	if (sf == 2)
-		pagesize = ALIGN_PAGE(size + HSIZE);
+		pagesize = ALIGN(size + HSIZE);
 	new = (t_block *)mmap(0, pagesize, MAPPING);
-	//P("MMAP of :", pagesize);
 	ft_bzero((unsigned char *)new, pagesize);
 	new->nx = NULL;
 	new->size = PACK(size, 0x3);
@@ -72,9 +81,9 @@ void	*malloc(size_t size)
 	pthread_mutex_lock(&g_mut);
 	newsize = ALIGN(size);
 	sf = large;
-	if (size <= TINY - HSIZE)
+	if (size <= TINY)
 		sf = tiny;
-	else if (size <= SMALL - HSIZE)
+	else if (size <= SMALL)
 		sf = small;
 	last = g_mem[sf];
 	b = find_fit(&last, sf, newsize);

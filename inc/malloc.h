@@ -20,11 +20,8 @@
 # define MWHITE "\033[1;38;2;255;250;255m"
 # define P(X, S) ft_putstr(X); ft_putnbr(S); ft_putchar('\n');
 
-
-# define TINY 32
-# define TINY_PAGE getpagesize()
-//# define TINY 256
-//# define SMALL 1064960
+# define TINY 128
+# define TINY_PAGE getpagesize() * 4
 # define SMALL 1024
 # define SMALL_PAGE getpagesize() * 32
 
@@ -39,6 +36,7 @@
 # define HSIZE sizeof(t_block)
 # define ADDR(x) (unsigned char *)(x) + HSIZE
 # define PACK(size, alloc) ((size) | (alloc))
+# define SIZEH(size) size + HSIZE
 
 # define PAGESIZE getpagesize()
 

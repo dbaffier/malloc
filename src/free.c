@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   free.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dbaffier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/01 22:46:36 by dbaffier          #+#    #+#             */
+/*   Updated: 2020/07/01 22:46:38 by dbaffier         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "malloc.h"
 
 pthread_mutex_t g_mut;
@@ -7,16 +19,16 @@ static t_block	*ft_find(void *ptr, t_block **prev, size_t *grp)
 	t_block		*save;
 
 	*grp = tiny - 1;
-	while (++(*grp) <= large) // loop over grp
+	while (++(*grp) <= large)
 	{
 		save = g_mem[*grp];
-		if (prev) // save prev
+		if (prev)
 			*prev = save;
-		while (save) // loop over grp list
+		while (save)
 		{
-			if ((save->size & 1) && ADDR(save) == ptr)
+			if ((save->size & 1) && ADDR(save) == (unsigned char *)ptr)
 				return (save);
-			if (prev)											// previous ptr
+			if (prev)
 				*prev = save;
 			save = save->nx;
 		}
@@ -24,49 +36,41 @@ static t_block	*ft_find(void *ptr, t_block **prev, size_t *grp)
 	return (NULL);
 }
 
-t_block *coalescence(t_block *curr, t_block *prev)
+static t_block	*coalescence(t_block *curr, t_block *prev, size_t f)
 {
-	size_t	f;
-
-	f = prev && prev->size & 2 ? 1 : 0;
-	if (prev && !(prev->size & 1) && !(curr->size & 2)) // if prev not malloc + curr not first MMAP
+	if (prev && !(prev->size & 1) && !(curr->size & 2))
 	{
-		if (curr->nx && !(curr->nx->size & 3)) // if next + next is not malloc and not first MMAP
+		if (curr->nx && !(curr->nx->size & 3))
 		{
-			if (f)
-				prev->size = PACK((prev->size & ~0x3) + curr->nx->size + HSIZE, 0x2);
-			else
-				prev->size = (prev->size & ~0x3) + curr->nx->size + HSIZE;
+			prev->size = f ? PACK((prev->size & ~3) + SIZEH(curr->nx->size), 2)
+			: (prev->size & ~0x3) + SIZEH(curr->nx->size);
 			prev->nx = curr->nx->nx;
 		}
 		else
 			prev->nx = curr->nx;
-		if (f)
-			prev->size = PACK((prev->size & ~0x3) + (curr->size & ~0x3) + HSIZE, 0x2);
-		else
-			prev->size = (prev->size & ~0x3) + (curr->size & ~0x3) + HSIZE;
+		prev->size = f ? PACK((prev->size & ~3) + SIZEH((curr->size & ~3)), 2)
+		: (prev->size & ~0x3) + (curr->size & ~0x3) + HSIZE;
 		return (prev);
 	}
 	else
 	{
-		if (curr->nx && !(curr->nx->size & 3)) // if next + next not malloc and not first
+		if (curr->nx && !(curr->nx->size & 3))
 		{
-			if (curr->size & 2)
-				curr->size = PACK((curr->size & ~0x3) + curr->nx->size + HSIZE, 0x2);
-			else
-				curr->size = (curr->size & ~0x3) + curr->nx->size + HSIZE;
+			curr->size = curr->size & 2 ?
+			PACK(SIZEH((curr->size & ~0x3) + curr->nx->size), 0x2)
+			: (curr->size & ~0x3) + SIZEH(curr->nx->size);
 			curr->nx = curr->nx->nx;
 		}
 	}
 	return (curr);
 }
 
-void	adapt(size_t grp, t_block *prev)
+static void		adapt(size_t grp, t_block *prev)
 {
 	t_block		*list;
 
 	list = g_mem[grp];
-	while (list) // loop over grp list
+	while (list)
 	{
 		if (list->nx && list->nx == prev)
 			list->nx = prev->nx;
@@ -74,7 +78,7 @@ void	adapt(size_t grp, t_block *prev)
 	}
 }
 
-void	free(void *ptr)
+void			free(void *ptr)
 {
 	size_t		grp;
 	t_block		*find;
@@ -82,16 +86,14 @@ void	free(void *ptr)
 
 	if (ptr == NULL)
 		return ;
-	//show_alloc_mem_ex();
-	//printf("GOING TO FREE : %p--", ptr);
 	pthread_mutex_lock(&g_mut);
-	if (!(find = ft_find((unsigned char *)ptr, &prev, &grp)))
+	if (!(find = ft_find(ptr, &prev, &grp)))
 		return ;
-	find->size &= -0x2; // REMOVE MALLOCATED BYTE
+	find->size &= ~1;
 	if (grp < large)
-		find = coalescence(find, prev);
+		find = coalescence(find, prev, prev && prev->size & 2);
 	if ((grp == tiny && find && (find->size & ~0x3) == (size_t)TINY_PAGE)
-		|| (grp == small && find && (find->size & ~0x3) == (size_t )SMALL_PAGE)
+		|| (grp == small && find && (find->size & ~0x3) == (size_t)SMALL_PAGE)
 		|| grp == large)
 	{
 		if (g_mem[grp] == find)

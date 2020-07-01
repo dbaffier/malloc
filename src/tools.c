@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tools.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dbaffier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/01 22:46:52 by dbaffier          #+#    #+#             */
+/*   Updated: 2020/07/01 22:46:54 by dbaffier         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "malloc.h"
 
 pthread_mutex_t g_lock;
@@ -14,7 +26,7 @@ void	print_addr(void *ptr)
 	n = (uintptr_t)ptr;
 	str[9] = '\0';
 	i = 9;
-	while(i-- >= 0)
+	while (i-- >= 0)
 	{
 		str[i] = hex[n & 15];
 		n >>= 4;
@@ -35,7 +47,7 @@ void	header_zone(void *p, size_t i)
 	write(1, "\n", 1);
 }
 
-void	print_chunk(t_block *curr)
+void	print_chunk(t_block *curr, int *total)
 {
 	if (curr->size & 1)
 	{
@@ -46,6 +58,7 @@ void	print_chunk(t_block *curr)
 		print_addr((unsigned char *)curr + (HSIZE + (curr->size & ~0x3)));
 		write(1, " => ", 4);
 		ft_putnbr(curr->size & ~0x3);
+		*total += (curr->size & ~0x3);
 		write(1, " bytes allocated", 16);
 	}
 	else
@@ -67,6 +80,7 @@ void	show_alloc_mem_ex(void)
 {
 	t_block		*bl;
 	size_t		i;
+	int			total;
 
 	i = 0;
 	pthread_mutex_lock(&g_lock);
@@ -78,11 +92,15 @@ void	show_alloc_mem_ex(void)
 		{
 			if (bl->size & 2)
 				header_zone(bl, i);
-			print_chunk(bl);
+			print_chunk(bl, &total);
+			if (bl == bl->nx)
+				break ;
 			bl = bl->nx;
 		}
 		i++;
 	}
-	write(1, "\n\n\n", 3);
+	write(1, "\t\tTotal : ", 10);
+	ft_putnbr(total);
+	write(1, "bytes\n", 6);
 	pthread_mutex_unlock(&g_lock);
 }
