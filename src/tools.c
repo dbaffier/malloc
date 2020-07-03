@@ -53,9 +53,9 @@ void	print_chunk(t_block *curr, int *total)
 	{
 		write(1, MGREEN, ft_strlen(MGREEN));
 		write(1, "\t", 1);
-		print_addr((unsigned char *)curr + HSIZE);
+		print_addr((unsigned char *)curr + sizeof(B));
 		write(1, " - ", 3);
-		print_addr((unsigned char *)curr + (HSIZE + (curr->size & ~0x3)));
+		print_addr((unsigned char *)curr + (sizeof(B) + (curr->size & ~0x3)));
 		write(1, " => ", 4);
 		ft_putnbr(curr->size & ~0x3);
 		*total += (curr->size & ~0x3);
@@ -65,9 +65,9 @@ void	print_chunk(t_block *curr, int *total)
 	{
 		write(1, MBLUE, ft_strlen(MBLUE));
 		write(1, "\t", 1);
-		print_addr((unsigned char *)curr + HSIZE);
+		print_addr((unsigned char *)curr + sizeof(B));
 		write(1, " - ", 3);
-		print_addr((unsigned char *)curr + (HSIZE + (curr->size & ~0x3)));
+		print_addr((unsigned char *)curr + (sizeof(B) + (curr->size & ~0x3)));
 		write(1, " => ", 4);
 		ft_putnbr(curr->size & ~0x3);
 		write(1, " bytes available", 16);

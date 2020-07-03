@@ -12,8 +12,6 @@
 
 #include "malloc.h"
 
-pthread_mutex_t	g_mut;
-
 static t_block	*ft_find(void *ptr)
 {
 	t_block *save;
@@ -25,7 +23,8 @@ static t_block	*ft_find(void *ptr)
 		save = g_mem[grp];
 		while (save)
 		{
-			if ((save->size & 1) && ADDR(save) == (unsigned char *)ptr)
+			if ((save->size & 1) && (unsigned char *)(save)
+			+ sizeof(t_block) == (unsigned char *)ptr)
 				return (save);
 			save = save->nx;
 		}
@@ -45,26 +44,20 @@ static void		*expand(t_block *find, size_t size)
 	if (size < find->size + find->nx->size)
 	{
 		old = find->nx->size & ~3;
-		nx = (t_block *)(ADDR(find) + size);
-		ft_bzero(nx, sizeof(t_block));
+		nx = (t_block *)((unsigned char *)(find) + sizeof(t_block) + size);
+		ft_bzero(nx, sizeof(t_block *));
 		nx->nx = find->nx->nx;
 		find->nx = nx;
 		nx->size = ((find->size + old) - size);
-		find->size = f ? PACK(size, 0x3) : PACK(size, 0x1);
+		find->size = f ? size | 0x3 : size | 0x1;
 	}
 	else
 	{
+		find->size = f ? (find->size + find->nx->size) | 0x3
+			: (find->size + find->nx->size) | 0x1;
 		find->nx = find->nx->nx;
-		find->size = f ? PACK(find->size + find->nx->size, 0x3)
-			: PACK(find->size + find->nx->size, 0x1);
 	}
-	return ((void *)ADDR(find));
-}
-
-static void		*unlock_ret(void *ptr)
-{
-	pthread_mutex_unlock(&g_mut);
-	return (ptr);
+	return ((void *)(unsigned char *)(find) + sizeof(t_block));
 }
 
 void			*realloc(void *ptr, size_t size)
@@ -75,20 +68,21 @@ void			*realloc(void *ptr, size_t size)
 		return (malloc(size));
 	if (!size)
 		free(ptr);
-	pthread_mutex_lock(&g_mut);
 	if (!size || !(find = ft_find(ptr)))
-		return (unlock_ret(ptr));
-	size = ALIGN(size);
+		return (ptr);
+	size = ((size + (ALIGNMENT - 1)) & ~(ALIGNMENT - 1));
 	if (size <= (find->size & ~3))
-		return (unlock_ret(ptr));
+		return (ptr);
 	if (find->nx && !(find->nx->size & 3)
-			&& size < (find->size & ~3) + (find->nx->size & ~3) + HSIZE)
+			&& size < (find->size & ~3) + (find->nx->size & ~3)
+			+ sizeof(t_block))
 		ptr = expand(find, size);
 	else
 	{
 		ptr = malloc(size);
-		ft_memcpy(ptr, ADDR(find), (find->size & ~3));
-		free(ADDR(find));
+		ft_memcpy(ptr, (unsigned char *)(find) +
+		sizeof(t_block), (find->size & ~3));
+		free((unsigned char *)(find) + sizeof(t_block));
 	}
-	return (unlock_ret(ptr));
+	return (ptr);
 }

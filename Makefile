@@ -6,7 +6,7 @@
 #    By: dbaffier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/24 00:18:28 by dbaffier          #+#    #+#              #
-#    Updated: 2020/07/01 22:45:56 by dbaffier         ###   ########.fr        #
+#    Updated: 2020/07/03 21:49:53 by dbaffier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 #
@@ -27,6 +27,9 @@ MALLOC_LINK = -L. -lft_malloc
 
 INC_DIR = inc/
 INCS = -I$(LIBFT_PATH)/inc -I$(INC_DIR)
+
+DEPS_DIR = .deps/
+DEPS = $(addprefix $(DEPS_DIR), $(SRC:.c=.d))
 
 OBJS_DIR = objs/
 OBJS = $(addprefix $(OBJS_DIR), $(SRC:.c=.o))
@@ -52,7 +55,11 @@ BLUE = "\033[1;38;2;50;150;250m"
 PURPLE = "\033[1;38;2;150;75;255m"
 WHITE = "\033[1;38;2;255;250;232m"
 
-all: $(OBJS_DIR) $(LIBFT_LIB) $(NAME)
+all: $(DEPS_DIR) $(OBJS_DIR) $(LIBFT_LIB) $(NAME)
+
+
+$(DEPS_DIR):
+	@mkdir -p $@
 
 $(OBJS_DIR):
 	@echo $(YELLO)Creating objs dir
@@ -70,13 +77,19 @@ $(NAME): $(LINKNAME)
 
 $(LINKNAME): $(OBJS) $(OBJS1) $(OBJS2)
 	@echo $(LG)Making $(LINKNAME)
-	@gcc -shared $(LIBFT_LINK) -o $@ $(OBJS)
+	@gcc -shared  $(LIBFT_LINK) -o $@ $(OBJS) -lpthread
 
 $(OBJS_DIR)%.o: $(TEST_DIR)%.c
 	@gcc $(CFLAGS) -o $@ -c $< $(INCS)
 
 $(OBJS_DIR)%.o: $(SRC_DIR)%.c
-	@gcc $(CFLAGS) -o $@ -c $< $(INCS)
+	@gcc -MT $@ -MMD -MP -MF $(DEPS_DIR)$*.Td $(CFLAGS) -o $@ -c $<  $(INCS)
+	@mv -f $(DEPS_DIR)$*.Td $(DEPS_DIR)$*.d && touch $@
+
+$(DEPS_DIR)%.d: ;
+.PRECIOUS: $@
+
+-include $(DEPS)
 
 clean:
 	@make clean -C $(LIBFT_PATH)

@@ -12,14 +12,25 @@
 
 #include "libft.h"
 
-size_t		ft_strlen(const char *s)
+size_t	ft_strlen(const char *str)
 {
-	size_t i;
+	int		*addr;
+	size_t	i;
 
+	addr = (int *)str;
 	i = 0;
-	if (!(*s))
-		return (0);
-	while (s[i])
-		i++;
+	while (1)
+	{
+		if (!(*addr & 0xFF))
+			return (i);
+		if (!(*addr & 0xFF00))
+			return (i + 1);
+		if (!(*addr & 0xFF0000))
+			return (i + 2);
+		if (!(*addr & 0xFF000000))
+			return (i + 3);
+		addr++;
+		i += 4;
+	}
 	return (i);
 }

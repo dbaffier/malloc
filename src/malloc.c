@@ -12,8 +12,6 @@
 
 #include "malloc.h"
 
-pthread_mutex_t g_mut;
-
 void	*find_fit(t_block **last, size_t sf, size_t size)
 {
 	t_block	*list;
@@ -24,16 +22,17 @@ void	*find_fit(t_block **last, size_t sf, size_t size)
 	{
 		if (!(list->size & 0x1) && (list->size & ~0x3) >= size)
 		{
-			if ((list->size & ~0x3) - size > HSIZE)
+			if ((list->size & ~0x3) - size > sizeof(t_block))
 			{
-				new = (t_block *)(ADDR(list) + size);
+				new = (t_block *)((unsigned char *)
+				(list) + sizeof(t_block) + size);
 				ft_bzero(new, sizeof(t_block *));
-				new->size = (list->size & ~3) - size - HSIZE;
+				new->size = (list->size & ~3) - size - sizeof(t_block);
 				new->nx = list->nx;
-				list->size = (list->size & 2) ? PACK(size, 0x3)
-				: PACK(size, 0x1);
+				list->size = (list->size & 2) ? size | 0x3
+				: size | 0x1;
 				list->nx = new;
-				return (ADDR(list));
+				return ((unsigned char *)(list) + sizeof(t_block));
 			}
 		}
 		*last = list;
@@ -48,25 +47,27 @@ void	*block_alloc(t_block *last, size_t sf, size_t size)
 	t_block		*next;
 	size_t		pagesize;
 
-	pagesize = sf == 0 ? TINY_PAGE : SMALL_PAGE;
+	pagesize = sf == 0 ? getpagesize() * 4 : getpagesize() * 32;
 	if (sf == 2)
-		pagesize = ALIGN(size + HSIZE);
-	new = (t_block *)mmap(0, pagesize, MAPPING);
+		pagesize = (((size + sizeof(t_block)) +
+		(ALIGNMENT - 1)) & ~(ALIGNMENT - 1));
+	new = (t_block *)mmap(0, pagesize, PROT_READ | PROT_WRITE,
+	MAP_ANON | MAP_PRIVATE, -1, 0);
 	ft_bzero((unsigned char *)new, pagesize);
 	new->nx = NULL;
-	new->size = PACK(size, 0x3);
+	new->size = size | 0x3;
 	if (last)
 		last->nx = new;
 	else
 		g_mem[sf] = new;
 	if (sf < large)
 	{
-		next = (t_block *)(ADDR(new) + size);
+		next = (t_block *)((unsigned char *)(new) + sizeof(t_block) + size);
 		new->nx = next;
-		next->size = pagesize - (size + HSIZE);
+		next->size = pagesize - (size + sizeof(t_block));
 		next->nx = NULL;
 	}
-	return (ADDR(new));
+	return ((unsigned char *)(new) + sizeof(t_block));
 }
 
 void	*malloc(size_t size)
@@ -78,8 +79,8 @@ void	*malloc(size_t size)
 
 	if (size == 0)
 		return (NULL);
-	pthread_mutex_lock(&g_mut);
-	newsize = ALIGN(size);
+	pthread_mutex_lock(&g_mutex);
+	newsize = ((size + (ALIGNMENT - 1)) & ~(ALIGNMENT - 1));
 	sf = large;
 	if (size <= TINY)
 		sf = tiny;
@@ -89,6 +90,6 @@ void	*malloc(size_t size)
 	b = find_fit(&last, sf, newsize);
 	if (b == NULL)
 		b = block_alloc(last, sf, newsize);
-	pthread_mutex_unlock(&g_mut);
+	pthread_mutex_unlock(&g_mutex);
 	return ((void *)b);
 }

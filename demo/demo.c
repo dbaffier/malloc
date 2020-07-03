@@ -35,7 +35,7 @@ void	print_memory(int i, t_block *memory, int header, int size)
 		if (!size)
 		{
 			t = t->nx;
-			header = HSIZE;
+			header = sizeof(t_block);
 			size = t->size & ~0x3;
 		}
 		if (header && header-- >= -17)
@@ -54,7 +54,7 @@ void	print_memory(int i, t_block *memory, int header, int size)
 void	hexdumper(t_block *memory)
 {
 	printf("\e[1J");
-	print_memory(-1, memory, HSIZE, memory->size & ~0x3);
+	print_memory(-1, memory, sizeof(t_block), memory->size & ~0x3);
 	printf("\n");
 	usleep(500000);
 }

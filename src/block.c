@@ -13,3 +13,4 @@
 #include "malloc.h"
 
 t_block *g_mem[3] = {NULL, NULL, NULL};
+pthread_mutex_t		g_mutex = PTHREAD_MUTEX_INITIALIZER;
