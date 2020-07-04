@@ -3,20 +3,20 @@
 #include <string.h>
 #include <pthread.h>
 
-void *myThreadFun(void *vargp)
+void	*myThreadFun(void *vargp)
 {
         char    *str;
         for(int    i = 0; i < 500; i++)
         {
-                str = malloc(16);
-                str = malloc(16);
+               str = malloc(16);
+               str = malloc(16);
                str = realloc(str, 16);
                free(str);
         }
         return   NULL;
 }
 
-int main()
+int	main(void)
 {
         pthread_t thread_id[42];
         for(int i = 0; i < 42; i++)
@@ -29,4 +29,4 @@ int main()
                 pthread_join(thread_id[i], NULL);
         }
         exit(0);
-};
+}
