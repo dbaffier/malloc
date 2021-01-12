@@ -1,7 +1,7 @@
 # malloc
 My implementation of the libc malloc, realloc and free functions using system mmap
 
-##Features
+## Features
 
   * Size segmentation: divides requests into SMALL, MEDIUM and LARGE, use pre-allocated zones for SMALL and MEDIUM requests
   
